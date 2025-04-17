@@ -2,7 +2,7 @@
 set_time_limit(0); // per tenerlo attivo senza timeout
 require_once 'database/connessione.php';
 
-$id_percorso = 1; // oppure $_GET['id_percorso']
+$id_percorso = 175; // oppure $_GET['id_percorso']
 
 // Prendi le fermate del percorso in ordine
 $sql = "SELECT f.lat, f.lon 
