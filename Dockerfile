@@ -1,7 +1,10 @@
-# Usa un'immagine base con PHP e Apache
+# Usa PHP 8.2 con Apache
 FROM php:8.2-apache
 
-# Copia tutti i file nella root del container web
+# Installa l'estensione mysqli
+RUN docker-php-ext-install mysqli
+
+# Copia i file nel container
 COPY . /var/www/html/
 
 # Dai i permessi corretti
