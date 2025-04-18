@@ -1,17 +1,17 @@
-# Usa PHP 8.2 con Apache
 FROM php:8.2-apache
 
-# Installa l'estensione mysqli
+# Installa estensione mysqli
 RUN docker-php-ext-install mysqli
 
-# Copia i file nel container
+# Imposta simulatore.php come file di default
+RUN echo 'DirectoryIndex simulatore.php' > /etc/apache2/conf-available/custom-index.conf && \
+    a2enconf custom-index
+
+# Copia tutti i file nel container
 COPY . /var/www/html/
 
 # Dai i permessi corretti
 RUN chown -R www-data:www-data /var/www/html
 
-RUN echo 'DirectoryIndex simulatore.php' > /etc/apache2/conf-available/directoryindex.conf && \
-    a2enconf directoryindex
-
-# Esponi la porta 80
+# Espone la porta 80
 EXPOSE 80
