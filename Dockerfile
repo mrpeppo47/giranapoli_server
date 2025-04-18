@@ -10,5 +10,8 @@ COPY . /var/www/html/
 # Dai i permessi corretti
 RUN chown -R www-data:www-data /var/www/html
 
+RUN echo 'DirectoryIndex simulatore.php' > /etc/apache2/conf-available/directoryindex.conf && \
+    a2enconf directoryindex
+
 # Esponi la porta 80
 EXPOSE 80
