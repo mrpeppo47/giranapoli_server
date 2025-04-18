@@ -3,8 +3,8 @@ FROM php:8.2-apache
 # Installa estensione mysqli
 RUN docker-php-ext-install mysqli
 
-# Imposta simulatore.php come file di default
-RUN echo 'DirectoryIndex simulatore.php' > /etc/apache2/conf-available/custom-index.conf && \
+# Imposta simulatore.php come file di default (DirectoryIndex)
+RUN echo "DirectoryIndex simulatore.php" > /etc/apache2/conf-available/custom-index.conf && \
     a2enconf custom-index
 
 # Copia tutti i file nel container
